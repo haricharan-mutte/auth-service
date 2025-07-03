@@ -10,6 +10,16 @@ Spring Security is a powerful, customizable authentication and access-control fr
 
 ---
 
+## 🧠 Concepts to Remember
+
+- **Authentication** = Who are you?
+- **Authorization** = Are you allowed to access this?
+- **Principal** = The currently authenticated user.
+- **Roles/Authorities** = Permissions assigned to a principal.
+- **Stateless** JWT-based systems should NOT use session.
+
+---
+
 ## 📦 Dependencies & Starters
 
 The main dependency for enabling Spring Security is:
@@ -39,7 +49,7 @@ HTTP Request
 [Servlet Filters]
    → DelegatingFilterProxy
       ↓
-   → FilterChainProxy (Spring Security Chain)
+   → FilterChainProxy (Spring Security Filteer Chain)
       ↓
    → Filters (in order):
        - CorsFilter
@@ -78,16 +88,6 @@ HTTP Request
 | `GlobalFilter` (Gateway)     | Global API gateway filtering             |
 | `GatewayFilter`              | Route-specific filter in gateway         |
 | `SecurityContextHolder`     | Stores authenticated user information    |
-
----
-
-## 🧠 Concepts to Remember
-
-- **Authentication** = Who are you?
-- **Authorization** = Are you allowed to access this?
-- **Principal** = The currently authenticated user.
-- **Roles/Authorities** = Permissions assigned to a principal.
-- **Stateless** JWT-based systems should NOT use session.
 
 ---
 
