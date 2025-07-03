@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config-server
+    #      fail-fast: true
+      import: "optional:configserver:"
