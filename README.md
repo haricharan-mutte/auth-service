@@ -47,21 +47,22 @@ The main dependency for enabling Spring Security is:
 HTTP Request
    ↓
 [Servlet Filters]
-   → DelegatingFilterProxy
-      ↓
-   → FilterChainProxy (Spring Security Filteer Chain)
-      ↓
-   → Filters (in order):
-       - CorsFilter
-       - CsrfFilter
-       - LogoutFilter
-       - UsernamePasswordAuthenticationFilter
-       - JwtAuthenticationFilter (custom)
-       - BasicAuthenticationFilter
-       - ExceptionTranslationFilter
-       - FilterSecurityInterceptor
+          FilterChainProxy → Security Filter chains[Filters...]
+   |        |
+   |        ├─ UsernamePasswordAuthenticationFilter
+   |        ├─ BasicAuthenticationFilter
+   |        ├─ BearerTokenAuthenticationFilter
+   |        ├─ ExceptionTranslationFilter
+   |        └─ FilterSecurityInterceptor
    ↓
-[Controller Execution]
+AuthenticationManager → AuthenticationProvider → UserDetailsService
+   ↓
+SecurityContextHolder (stores user)
+   ↓
+Controller (if authorized)
+   ↓
+Response
+
 ```
 
 ---
